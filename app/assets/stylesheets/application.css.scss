@@ -1,0 +1,23 @@
+
+@import "bootstrap-sprockets";
+@import 'bootstrap';
+
+html,
+body{
+  text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#go-back{
+  float: left;
+}
+#new-todo{
+  float: left;
+}
+.panel{
+  margin-top: 50px;
+}
+.form-create{
+  margin-right: 100px;
+  margin-left: 100px;
+}

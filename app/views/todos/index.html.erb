@@ -1,8 +1,13 @@
+
 <h1> Listing all Todos </h1>
-<p>
-<%= link_to 'Ceate a Todo', new_todo_path %>
+<p id="new-todo">
+<%= link_to 'New Todo', new_todo_path, class:"btn btn-success" %>
 </p>
-<table>
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading"></div>
+<table class="table table-bordered">
 <tr>
 <th> Name </th>
 <th> Description </th>
@@ -17,3 +22,9 @@
 </tr>
 <% end %>
 </table>
+</div>
+<p id="go-back">
+  <%= link_to 'Go back', root_path, class:"btn btn-warning" %>
+  <br/>
+
+</p>

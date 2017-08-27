@@ -7,12 +7,12 @@ class TodosController < ApplicationController
   def create
    @todo = Todo.new(todo_params)
    if @todo.save
-     flash[:notice] = "Todo was created"
+     flash[:succes] = "Todo was created"
        redirect_to todo_path(@todo)
      else
        render 'new'
    end
-end
+  end
 
 def show
 end
@@ -25,13 +25,13 @@ end
 
 def destroy
   @todo.destroy
-  flash[:notice] = "Todo was succesfully deleted"
+  flash[:succes] = "Todo was succesfully deleted"
   redirect_to todos_path
 end
 
 def update
   if @todo.update(todo_params)
-    flash[:notice] = "Todo was succesfully updated"
+    flash[:success] = "Todo was succesfully updated"
     redirect_to todo_path(@todo)
   else
     render 'edit'
@@ -43,7 +43,7 @@ private
   def set_todo
   @todo = Todo.find(params[:id])
   end
-  
+
   def todo_params
       params.require(:todo).permit(:name,:description)
   end
