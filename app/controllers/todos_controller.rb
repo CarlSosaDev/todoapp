@@ -26,11 +26,11 @@ end
 
 def todos_user()
     @user = User.find(params[:id]);
-    @todos = @user.todos.all()
+    @todos = @user.todos.all.paginate(:page=> params[:page])
 end
 
 def index
-    @todos = @user.todos.all()
+    @todos = @user.todos.all.paginate(:page =>params[:page])
 end
 
 def destroy

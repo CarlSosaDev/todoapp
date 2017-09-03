@@ -6,7 +6,7 @@ class MembersController < ApplicationController
 
      def index()
        if is_admin()
-        @members = User.all
+        @members = User.all.paginate(:page=>params[:page])
        else
         redirect_to root_path
        end
