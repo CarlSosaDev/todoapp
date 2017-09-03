@@ -1,0 +1,28 @@
+<%= render 'shared/session' %>
+<h1> Listing all Todos of <%= @user.email %> </h1>
+
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading"></div>
+<table class="table table-bordered">
+<tr>
+<th> Name </th>
+<th> Description </th>
+</tr>
+<% @todos.each do |todo| %>
+<tr>
+ <td> <%= todo.name %> </td>
+ <td> <%= todo.description %> </td>
+ <td> <%= link_to 'Edit', edit_todo_path(todo) %></td>
+ <td> <%= link_to 'Show', todo_path(todo) %></td>
+ <td><%= link_to 'Delete', todo_path(todo), method: :delete,data: {confirm: "Are you sure?"} %></td>
+</tr>
+<% end %>
+</table>
+</div>
+<p id="go-back">
+  <%= link_to 'Go back',members_path , class:"btn btn-warning" %>
+  <br/>
+
+</p>

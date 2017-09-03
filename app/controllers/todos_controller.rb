@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_todo, only:[:show,:edit,:destroy,:update]
 
-  before_action :set_user
+  before_action :set_user, only: [:create,:index]
 
   def new
     @todo = Todo.new()
@@ -11,20 +11,26 @@ class TodosController < ApplicationController
   def create
    @todo = @user.todos.new(todo_params)
    if @todo.save()
-     flash[:succes] = "Todo was created"
+     flash[:succes] = "Todo was created";
        redirect_to todo_path(@todo)
      else
-       render 'new'
+       render 'new';
    end
   end
 
 def show
 end
+
 def edit
 end
 
+def todos_user()
+    @user = User.find(params[:id]);
+    @todos = @user.todos.all()
+end
+
 def index
-   @todos = @user.todos.all()
+    @todos = @user.todos.all()
 end
 
 def destroy

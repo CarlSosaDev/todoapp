@@ -1,0 +1,34 @@
+<%= render 'shared/session' %>
+<h1>Listing members</h1>
+
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading"></div>
+<table class="table table-bordered">
+<tr>
+  <th>
+      Email
+   </th>
+   <th>
+       Actions
+   </th>
+</tr>
+<% @members.each do |member| %>
+<% if member.admin != true %>
+<tr>
+  <td>
+    <%= member.email %>
+  </td>
+  <td>
+    <%= link_to "User's todos", todos_by_users_path(member) %> |
+    <%= link_to 'Delete', admin_destroy_user_path(member), method: :delete,
+                         data: {confirm:'Are you sure you want to delete this?'} %>
+  </td>
+</tr>
+<% end %>
+<% end %>
+</table>
+</div>
+<p>
+<%= link_to 'Go back',todos_path, class:"btn btn-warning" %>
+</p>
