@@ -35,16 +35,16 @@ end
 
 def destroy
   @todo.destroy
-  flash[:succes] = "Todo was succesfully deleted"
+  flash[:succes] = "Todo was succesfully deleted";
   redirect_to todos_path
 end
 
 def update
   if @todo.update(todo_params)
-    flash[:success] = "Todo was succesfully updated"
+    flash[:success] = "Todo was succesfully updated";
     redirect_to todo_path(@todo)
   else
-    render 'edit'
+    render 'edit';
   end
 end
 
