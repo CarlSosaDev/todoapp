@@ -2,7 +2,7 @@
 
 <ul class="nav nav-tabs justified">
     <li role="presentation" class=""><%= link_to 'Home', root_path %></li>
-    <% if @user.admin == true %>
+    <% if current_user.admin == true %>
   <li role="presentation"><%= link_to 'All users and todos', members_path %></li>
       <% end %>
       <% if user_signed_in? %>
