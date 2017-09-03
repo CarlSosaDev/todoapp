@@ -25,4 +25,4 @@ Things you may want to cover:
 
 * Heroku: https://radiant-falls-90751.herokuapp.com/
 * User: admin@todos.com or create a new one.
- *Password : password.
+* Password : password.
